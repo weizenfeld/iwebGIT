@@ -27,6 +27,8 @@
 </head>
 
     <body>
+        
+       <!-- Hier müssen alle Views rein, also nur eine Index.php Datei! -->
 
         <div id="topbar" class="transparent">
             <div id="title">the lucky fish
