@@ -3,19 +3,19 @@ var iWebkit;
 if (!iWebkit) {
 	
 	iWebkit = window.onload = function () {
-			function fullscreen() {
-				var a = document.getElementsByTagName("a");
-				for (var i = 0; i < a.length;i++) {
-					if (a[i].className.match("noeffect")) {
-					}
-				else {
-						a[i].onclick = function () {
-							window.location = this.getAttribute("href");
-							return false;
-						};
-					}
-				}
-			}
+//			function fullscreen() {
+//				var a = document.getElementsByTagName("a");
+//				for (var i = 0; i < a.length;i++) {
+//					if (a[i].className.match("noeffect")) {
+//					}
+//				else {
+////						a[i].onclick = function () {
+////							window.location = this.getAttribute("href");
+////							return false;
+////						};
+//					}
+//				}
+//			}
 
 			function hideURLbar() {
 				window.scrollTo(0, 0.9);
@@ -48,9 +48,9 @@ if (!iWebkit) {
                         $.each(data, function(entryIndex, entry){
 
                         html +=
-
+                            
                           '<li class="store">' +
-                          '<a  href="article.php?info=' + entry['articlenumber'] + '">' + '</a>' +
+                          '<a  href="#?info=' + entry['articlenumber'] + '" onclick="javascript:DivEinblenden(\'azeige\'); get_json_article()">' + '</a>' +
                           '<span class="image" style="background-image: url(' + entry['image'] + ')">' +'</span>' +
                           '<span class="comment">' +
                             entry['label']  + '</span>' +
@@ -59,7 +59,7 @@ if (!iWebkit) {
                           '<span class="arrow">' + '</span>'+
                           '</a>' +' </li>'
 
-                           });
+                           }); 
                             $('#angebot').html(html);
 
                         });
@@ -67,61 +67,61 @@ if (!iWebkit) {
                         }
 
                         //einzelne Artikelinformation ziehen und anzeigen
-                        function get_json_article() {
-
-                        var url = (document.URL);
-                        //hier werden die letzen 5 URL Zeichen gezogen -> Artikelnummer
-                        var no = url;
-                        var nolenght = url.substr(-5,1)
-                        var urls = new Array();
-                        urls.push(no.substr(-5,1), no.substr(-4,1), no.substr(-3,1), no.substr(-2,1), no.substr(-1,1));
-                        var info = (urls[0] + urls[1] + urls[2] + urls[3] + urls[4]);
-
-                        var html = '';
-
-                        $.getJSON('includes/getarticlenumber.php?info=' + info +'' ,  function(data){
-
-                        $.each(data, function(entryIndex, entry){
-
-                          html +=
-
-                        '<ul class="pageitem">' +
-                        '<li class="articlediscr"><p>' + entry['discr_short'] + '</p>'  +
-                        '</li>' +
-                        '<li id="articleimage">' +
-                        '<img  alt="'+ entry['type'] + '" width="100" src="' + entry['image']+ '" onerror="ImgError(this);"/>' +
-                        '</li>' +
-                        '<li class="menu"><a href="fullimage.php?info=' + entry['articlenumber'] + '">' +
-                        '<img alt="'+ entry['type']+ '" src="' + entry['image']+ '" onerror="ImgError(this);" /><span class="name">Photos'+
-                        '</span></a><span class="arrow"></span></li>' +
-                        '<li class="textbox ">' +
-                        'Label:&nbsp; &nbsp; &nbsp;' +
-                         entry['label'] +
-                        '</li>' +
-                        '<li class="textbox"><p>' +
-                        'Color:&nbsp; &nbsp; &nbsp;' +
-                         entry['color'] + '</p>' +
-                        '</li>' +
-                        '<li class="textbox "><p>' +
-                        'Size: &nbsp; &nbsp; &nbsp;&nbsp;' +
-                         entry['size'] + '</p>' +
-                        '</li>' +
-                        '<li class="textbox "><p>' +
-                        'Preis:&nbsp; &nbsp; &nbsp;' +
-                         entry['price'] +  'EUR - Inkl 19% MwSt</p>' +
-                        '</li>' +
-                        '<li class="textbox "><p>' +
-                         entry['discription'] + '</p>' +
-                        '</li>' +
-                        '</ul>'
-
-                         });
-
-                             $('#artikel').html(html);
-
-                            });
-
-                            }
+//                        function get_json_article() {
+//
+//                        var url = (document.URL);
+//                        //hier werden die letzen 5 URL Zeichen gezogen -> Artikelnummer
+//                        var no = url;
+//                        var nolenght = url.substr(-5,1)
+//                        var urls = new Array();
+//                        urls.push(no.substr(-5,1), no.substr(-4,1), no.substr(-3,1), no.substr(-2,1), no.substr(-1,1));
+//                        var info = (urls[0] + urls[1] + urls[2] + urls[3] + urls[4]);
+//
+//                        var html = '';
+//
+//                        $.getJSON('includes/getarticlenumber.php?info=' + info +'' ,  function(data){
+//
+//                        $.each(data, function(entryIndex, entry){
+//
+//                          html +=
+//
+//                        '<ul class="pageitem">' +
+//                        '<li class="articlediscr"><p>' + entry['discr_short'] + '</p>'  +
+//                        '</li>' +
+//                        '<li id="articleimage">' +
+//                        '<img  alt="'+ entry['type'] + '" width="100" src="' + entry['image']+ '" onerror="ImgError(this);"/>' +
+//                        '</li>' +
+//                        '<li class="menu"><a href="fullimage.php?info=' + entry['articlenumber'] + '">' +
+//                        '<img alt="'+ entry['type']+ '" src="' + entry['image']+ '" onerror="ImgError(this);" /><span class="name">Photos'+
+//                        '</span></a><span class="arrow"></span></li>' +
+//                        '<li class="textbox ">' +
+//                        'Label:&nbsp; &nbsp; &nbsp;' +
+//                         entry['label'] +
+//                        '</li>' +
+//                        '<li class="textbox"><p>' +
+//                        'Color:&nbsp; &nbsp; &nbsp;' +
+//                         entry['color'] + '</p>' +
+//                        '</li>' +
+//                        '<li class="textbox "><p>' +
+//                        'Size: &nbsp; &nbsp; &nbsp;&nbsp;' +
+//                         entry['size'] + '</p>' +
+//                        '</li>' +
+//                        '<li class="textbox "><p>' +
+//                        'Preis:&nbsp; &nbsp; &nbsp;' +
+//                         entry['price'] +  'EUR - Inkl 19% MwSt</p>' +
+//                        '</li>' +
+//                        '<li class="textbox "><p>' +
+//                         entry['discription'] + '</p>' +
+//                        '</li>' +
+//                        '</ul>'
+//
+//                         });
+//
+//                             $('#artikel').html(html);
+//
+//                            });
+//
+//                            }
 
 
 
@@ -139,7 +139,7 @@ if (!iWebkit) {
                         html +=
 
                           '<li>' +
-                          '<a href="article.php?info='+ entry['articlenumber'] + '">'+
+                          '<a href="#?info='+ entry['articlenumber'] + '"onclick="javascript:get_json_article(); javascript:DivEinblenden(\'azeige\')">'+
                           '<img src="' + entry['image'] + '" alt="Artikel" name="article" width="70" height="99"  onerror="ImgError(this);"/></a>'+
                           //'<img src="' + entry['image'] + '" alt="Artikel" name="article" width="70" height="99" /></a>'+
                           '</li>'
@@ -155,12 +155,12 @@ if (!iWebkit) {
                         
 
 			iWebkit.init = function () {
-				fullscreen();
+				//fullscreen();
 				hideURLbar();
-                                loadSite();
+                                //loadSite();
                                 window.onload=get_carousel();
                                 window.onload=get_json();
-                                window.onload=get_json_article();
+                                //window.onload=get_json_article();
 
                                 
                                 
@@ -180,4 +180,6 @@ function ImgError(source){
     source.onerror = "";
     return true;
 }
+
+
 
