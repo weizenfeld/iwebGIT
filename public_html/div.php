@@ -1,4 +1,3 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
  
@@ -12,28 +11,7 @@
         <script src="javascript/developer-functions.js" type="text/javascript"></script>
         <script src="javascript/getarticleinfos.js" type="text/javascript"></script> 
  
- 
- 
-<script type="text/javascript">
-    
-    function DivAusblenden(divName){
-    
-   if (document.getElementById(divName)) {
-   document.getElementById(divName).style.display = 'none';
- }
-}
-            
-</script>
- 
-<script type="text/javascript">
-    
-    function DivEinblenden(divName){
-    if (document.getElementById(divName)) {
-    document.getElementById(divName).style.display = 'inline';
- }
-}
-            
-</script>
+
  
 <script type="text/javascript">
      function slide(){
@@ -94,34 +72,7 @@
             </div>
     </div>
         
-        
-        <div id="search" style="display:none;">
-        <div id="content">
- 
-            <ul class="pageitem">
- 
-            <div id="slider1">
-                    <a class="buttons prev" href="#">left</a>
-                    <div class="viewport">
-                            <ul id="articleimages" class="overview">
- 
-                            </ul>
-                    </div>
-                    <a class="buttons next" href="#">right</a>
-            </div>
- 
-            </ul>
- 
-            <ul class="pageitem">
-                      <li class="textbox">
-                          <span class="header">Naskdjaskdjk:</span>
-                      </li>
-                      <div id="angebot"></div>
-                     
-            </ul>
- 
-            </div>
-    </div>
+       
                
     <div id="impressum" style="display:none;">
         <div id="content" style="background-color: green">

@@ -174,12 +174,31 @@ if (!iWebkit) {
 }
 
 
-//Wenn Bild fehlt durch standart Image ersetzen
-function ImgError(source){
-    source.src = "images/No-Image-Available.jpg";
-    source.onerror = "";
-    return true;
-}
+     //Wenn Bild fehlt durch standart Image ersetzen
+    function ImgError(source){
+        source.src = "images/No-Image-Available.jpg";
+        source.onerror = "";
+        return true;
+    }
 
 
+    function DivAusblenden(divName){
+        if (document.getElementById(divName)) {
+        document.getElementById(divName).style.display = 'none';}
+     }
 
+    function DivEinblenden(divName){
+        if (document.getElementById(divName)) {
+        document.getElementById(divName).style.display = 'inline';}
+     }
+
+    function Divout(containerNo){
+        for(i=0;i<10;i++){
+        if( i != containerNo){
+        try{document.getElementById('einDivLayer'+i).style.display = 'none';}
+        catch(e){continue;}}}
+     }
+     
+//     function slide(){
+//     $('#slider1').tinycarousel({ display:1, pager: true, interval: true, controls: true });
+//     window.setTimeout("slide()", 3100);}
