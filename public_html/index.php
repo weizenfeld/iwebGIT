@@ -10,6 +10,7 @@
 <link href="css/stylesheet.css" rel="stylesheet" media="screen" type="text/css" />
 <script type="text/javascript" src="javascript/jquery-1.6.2.min.js"></script>
 <script src="javascript/developer-functions.js" type="text/javascript"></script>
+
 <script type="text/javascript" src="javascript/jquery.tinycarousel.min.js"></script>
 <title>the lucky fish</title>
 <meta content="keyword1,keyword2,keyword3" name="keywords" />
