@@ -1,6 +1,19 @@
 <?php
 
 
+    $user = "luckyfish"; 
+    $pass = "fish"; 
+    $dbname = "theluckyfish"; 
+    $server = "localhost";
+
+    
+//  $user = "weizenfeld_lucky"; 
+//  $pass = "luckyfish"; 
+//  $dbname = "weizenfeld_lucky"; 
+//  $server = "localhost";
+//  mysql_connect("DBSERVER", "DBUSERNAME", "DBPASSWORD"); weitere alternative
+
+
 if(is_numeric ( $_GET["info"] ) )
 {
     $articlenumber = $_GET['info'];
@@ -8,23 +21,15 @@ if(is_numeric ( $_GET["info"] ) )
 else
 {
     $articlenumber = "32421";
-    
-  
-}
-             
+}            
        
-       //$articlenumber = "32421";
-     //$query = getSQLQuery($articlenumber);
-      $query = "SELECT * FROM products  WHERE articlenumber = $articlenumber";
-     // $result = mysql_query( $query , $db);
+    $query = "SELECT * FROM products  WHERE articlenumber = $articlenumber";
 
-    // $link = mysql_connect('localhost', 'weizenfeld_lucky', 'luckyfish');
-    $link = mysql_connect('localhost', 'luckyfish', 'fish');
+    $link = mysql_connect($server, $user, $pass);
     if (!$link) {
         die('keine Verbindung möglich: ' . mysql_error());
     }
-    //$db_selected = mysql_select_db('weizenfeld_lucky', $link);
-    $db_selected = mysql_select_db('theluckyfish', $link);
+    $db_selected = mysql_select_db($dbname, $link);
 
     if (!$db_selected) {
         die ('Kann Datenbank nicht benutzen : ' . mysql_error());
