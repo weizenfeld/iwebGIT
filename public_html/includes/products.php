@@ -23,14 +23,9 @@
 
     }
 
-   // echo "<pre>";
-   //    var_dump($table);
     echo json_encode($table);
 
     mysql_free_result($result);
 
 
-
-       ?>
-
-
+?>

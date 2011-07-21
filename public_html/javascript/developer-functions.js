@@ -3,27 +3,27 @@ var iWebkit;
 if (!iWebkit) {
 	
 	iWebkit = window.onload = function () {
-//			function fullscreen() {
-//				var a = document.getElementsByTagName("a");
-//				for (var i = 0; i < a.length;i++) {
-//					if (a[i].className.match("noeffect")) {
-//					}
-//				else {
-////						a[i].onclick = function () {
-////							window.location = this.getAttribute("href");
-////							return false;
-////						};
-//					}
-//				}
-//			}
-
+			function fullscreen() {
+				var a = document.getElementsByTagName("a");
+				for (var i = 0; i < a.length;i++) {
+					if (a[i].className.match("noeffect")) {
+					}
+				else {
+//						a[i].onclick = function () {
+//							window.location = this.getAttribute("href");
+//							return false;
+//						};
+					}
+				}
+			}
+//                      <!-- #########  BROWSER URL VERSTECKEN  ########## -->
 			function hideURLbar() {
 				window.scrollTo(0, 0.9);
 			}
 
                        
 
-
+//                      <!-- #########  SITE PREOLODER  ########## -->
                          function loadSite() {
                         if (document.getElementById) {  // DOM3 = IE5, NS6
                         document.getElementById('hidepage').style.visibility = 'hidden';
@@ -38,7 +38,7 @@ if (!iWebkit) {
                            }
                         }
 
-
+//                      <!-- ######### ANZEIGE  NEUE PRODUKTE  ##########  -->     
                         function get_json() {
 
                         var html = '';
@@ -66,7 +66,7 @@ if (!iWebkit) {
 
                         }
 
-                        //einzelne Artikelinformation ziehen und anzeigen
+//                        <!-- #########  ANZEIGE ARTIKEL EINZELN z.Z IN getarticleinfos.js ########## -->
 //                        function get_json_article() {
 //
 //                        var url = (document.URL);
@@ -125,7 +125,7 @@ if (!iWebkit) {
 
 
 
-                        //Produkt-Slider auf der Indexseite
+//                      <!-- #########  ANZEIGE ARTIKEL IM SLIDER  ########## --> 
                         function get_carousel() {
 
                         var html = '';
@@ -151,17 +151,18 @@ if (!iWebkit) {
                         });
 
                         }
-
+                        
+                        
                         
 
 			iWebkit.init = function () {
-				//fullscreen();
+				fullscreen();
 				hideURLbar();
                                 //loadSite();
                                 window.onload=get_carousel();
                                 window.onload=get_json();
                                 //window.onload=get_json_article();
-
+                              
                                 
                                 
 
@@ -174,31 +175,30 @@ if (!iWebkit) {
 }
 
 
-     //Wenn Bild fehlt durch standart Image ersetzen
+//    <!-- #########  ERROR IMAGELOAD SHOW STANDART  ########## --> 
     function ImgError(source){
         source.src = "images/No-Image-Available.jpg";
         source.onerror = "";
         return true;
     }
 
-
+//    <!-- #########  INHALT DIV CONTAINER AUS  ########## --> 
     function DivAusblenden(divName){
         if (document.getElementById(divName)) {
         document.getElementById(divName).style.display = 'none';}
      }
-
+//    <!-- #########  INHALT DIV CONTAINER AUS  ########## -->
     function DivEinblenden(divName){
         if (document.getElementById(divName)) {
         document.getElementById(divName).style.display = 'inline';}
      }
-
-    function Divout(containerNo){
-        for(i=0;i<10;i++){
-        if( i != containerNo){
-        try{document.getElementById('einDivLayer'+i).style.display = 'none';}
-        catch(e){continue;}}}
-     }
+//    <!-- ######### +++ INHALT DIV CONTAINER AUS SCHLEIFE VERSUCH!!!!++++  ########## -->
+//    function Divout(containerNo){
+//        for(i=0;i<10;i++){
+//        if( i != containerNo){
+//        try{document.getElementById('einDivLayer'+i).style.display = 'none';}
+//        catch(e){continue;}}}
+//     }
      
-//     function slide(){
-//     $('#slider1').tinycarousel({ display:1, pager: true, interval: true, controls: true });
-//     window.setTimeout("slide()", 3100);}
+     
+

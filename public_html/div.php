@@ -3,27 +3,29 @@
  
     <head>
         <title>Div Container EIN/AUSBLENDEN</title>
-        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-        <script src="javascript/divcontainer.js" type="text/javascript"></script>
+        <meta content="yes" name="apple-mobile-web-app-capable" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+        <meta content="minimum-scale=1.0, width=device-width, maximum-scale=0.6667, user-scalable=no" name="viewport" />
+        <link href="pics/homescreen.gif" rel="apple-touch-icon" />       
+        <link href="pics/startup.png" rel="apple-touch-startup-image" />
         <link href="css/stylesheet.css" rel="stylesheet" media="screen" type="text/css" />
         <script type="text/javascript" src="javascript/jquery-1.6.2.min.js"></script> 
         <script type="text/javascript" src="javascript/jquery.tinycarousel.min.js"></script>
-        <script src="javascript/developer-functions.js" type="text/javascript"></script>
+        <script src="javascript/developer-functions.js" type="text/javascript"></script>     
+        <!-- Getarticleinfos soll später noch in developer-functions!!! -->
         <script src="javascript/getarticleinfos.js" type="text/javascript"></script> 
- 
-
- 
-<script type="text/javascript">
-     function slide(){
-     $('#slider1').tinycarousel({ display:1, pager: true, interval: true, controls: true });}
-     window.setTimeout("slide()", 3100);
-</script>
- 
+        
+        <script type="text/javascript">
+             function slide(){
+             $('#slider1').tinycarousel({ display:1, pager: true, interval: true, controls: true });}
+             window.setTimeout("slide()", 3100);
+        </script>
     </head>
+    
+    
     <body>
- 
- 
- 
+        <!-- #########  BEREICH NAVIGATION  ########## --> 
+        
         <div id="topbar" class="transparent">
             <div id="title">the lucky fish
                 </div>
@@ -40,12 +42,11 @@
                 <a href="index.php" style="background-image: url('images/article_men.jpg')"></a>
             </div>
  
- 
- 
- 
+      <!-- #########  BEREICH NEUE PRODUKTE 3 STÜCK  ########## --> 
         
         <div id="divName" style="display:inline;">
-        <div id="content">
+            
+           <div id="content">
  
             <ul class="pageitem">
  
@@ -69,23 +70,24 @@
                      
             </ul>
  
-            </div>
-    </div>
+           </div>
+       </div>
         
        
-               
+     <!-- #########  BEREICH IMPRESSUM  ########## -->  
+     
     <div id="impressum" style="display:none;">
-        <div id="content" style="background-color: green">
- 
- 
-     </div>
-        
+        <div id="content" style="background-color: green">ZUM TESTEN DER DIVs</div>      
     </div> 
-        
-        <div id="contakte" style="display: none;">  
-    <div id="content">
-    <span class="graytitle">Contact the lucky fish</span>
-    <ul class="pageitem">
+       
+     
+     <!-- #########  BEREICH CONTACT  ########## -->  
+     
+        <div id="contakte" style="display: none;"> 
+            
+        <div id="content">
+        <span class="graytitle">Contact the lucky fish</span>
+        <ul class="pageitem">
         <li class="menu">
         <a class="noeffect" href="mailto:lucky@fish.com?&amp;subject=the lucky fish &amp;body=Ihr anliegen an uns :">
         <img alt="mail" src="thumbs/mail.png" /><span class="name">Mail</span><span class="arrow"></span></a></li>
@@ -102,19 +104,24 @@
      </div>  
         </div>
         
+     
+     
+     <!-- #########  BEREICH ARTKELINFOS EINZEL  ########## --> 
+     
         <div id="azeige" style="display: none;">
-                  <div id="content">
+              <div id="content">
                  <div id="artikel"></div>
-          </div>
-            
+                </div>        
         </div>
         
         
     </body>
  
-    <div id="footer">
-        <div class="center" >
-            <img src="pics/fish_nacht.png" alt="brief description"/>
+     <!-- #########  BEREICH FOOTER  ########## --> 
+     
+       <div id="footer">
+            <div class="center" >
+               <img src="pics/fish_nacht.png" alt="brief description"/>
                  </div>
                     <a class="noeffect" href="#">Impressum</a>
          </div>
