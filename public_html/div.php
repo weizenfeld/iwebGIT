@@ -11,15 +11,16 @@
         <link href="css/stylesheet.css" rel="stylesheet" media="screen" type="text/css" />
         <script type="text/javascript" src="javascript/jquery-1.6.2.min.js"></script> 
         <script type="text/javascript" src="javascript/jquery.tinycarousel.min.js"></script>
-        <script src="javascript/developer-functions.js" type="text/javascript"></script>     
-        <!-- Getarticleinfos soll später noch in developer-functions!!! -->
-        <script src="javascript/getarticleinfos.js" type="text/javascript"></script> 
+        <script src="javascript/developer-functions.js" type="text/javascript"></script> 
         
         <script type="text/javascript">
              function slide(){
              $('#slider1').tinycarousel({ display:1, pager: true, interval: true, controls: true });}
              window.setTimeout("slide()", 3100);
         </script>
+        
+             
+        
     </head>
     
     
@@ -41,7 +42,8 @@
                 <a href="index.php" style="background-image: url('images/article_women.jpg')"></a>
                 <a href="index.php" style="background-image: url('images/article_men.jpg')"></a>
             </div>
- 
+        
+        
       <!-- #########  BEREICH NEUE PRODUKTE 3 STÜCK  ########## --> 
         
         <div id="divName" style="display:inline;">
@@ -104,6 +106,7 @@
      </div>  
         </div>
         
+    
      
      
      <!-- #########  BEREICH ARTKELINFOS EINZEL  ########## --> 
@@ -113,6 +116,16 @@
                  <div id="artikel"></div>
                 </div>        
         </div>
+     
+     <!-- #########  BEREICH FULLIMAGE  ########## --> 
+     
+     <div id="teste" style="display: none;">
+             <div  id="fullimage">            
+
+                    
+            </div>
+          
+    </div>
         
         
     </body>
