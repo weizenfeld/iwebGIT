@@ -19,29 +19,46 @@
              window.setTimeout("slide()", 3100);
         </script>
         
-             
-        
     </head>
     
     
     <body>
-        <!-- #########  BEREICH NAVIGATION  ########## --> 
         
+        <!-- #########  BEREICH NAVIGATION STARTSEITE ########## --> 
+        <div id="mainmenu" style="display:inline;">
         <div id="topbar" class="transparent">
             <div id="title">the lucky fish
                 </div>
             </div>
         <div id="tributton" >
             <div class="links">
-                <a href="#"  onclick="javascript:DivEinblenden('divName');javascript:DivAusblenden('search');javascript:DivAusblenden('impressum'); javascript:DivAusblenden('contakte');                                    ">Home</a>
-                <a href="#"  onclick="javascript:DivAusblenden('divName');javascript:DivAusblenden('search');javascript:DivEinblenden('impressum'); javascript:DivAusblenden('contakte'); javascript:DivAusblenden('azeige');">Search</a>
-                <a href="#"  onclick="javascript:DivAusblenden('divName');javascript:DivAusblenden('search');javascript:DivAusblenden('impressum'); javascript:DivEinblenden('contakte'); javascript:DivAusblenden('azeige');">Contact</a>
+                <a href="#"  onclick="javascript:ShowMain()">Home</a>
+                <a href="#"  onclick="javascript:ShowSearch()">Search</a>
+                <a href="#"  onclick="javascript:ShowContact()">Contact</a>
                 </div>
             </div>
         <div id="doublead">
-                <a href="index.php" style="background-image: url('images/article_women.jpg')"></a>
-                <a href="index.php" style="background-image: url('images/article_men.jpg')"></a>
+                <a href="#" style="background-image: url('images/article_women.jpg')"></a>
+                <a href="#" style="background-image: url('images/article_men.jpg')"></a>
             </div>
+       </div>
+        
+        <!-- #########  BEREICH NAVIGATION REST ########## --> 
+         
+        <div id="menu" style="display:none;">
+            <div id="topbar" class="black">
+                <div id="leftnav">
+                    <a href="#"  onclick="javascript:ShowMain(); "><img alt="home" src="images/home.png" /></a>
+                    <a id="back" href="#" onclick="javascript:get_json(); javascript:ShowAnzeige()"> back </a>
+                    
+                </div>
+
+              <div id="rightnav">
+                    <a href="#" onclick="javascript:ShowContact()">Contact</a>
+                    <a href="#" onclick="javascript:ShowSearch()">Search</a>
+              </div>
+            </div>
+        </div>
         
         
       <!-- #########  BEREICH NEUE PRODUKTE 3 STÜCK  ########## --> 
@@ -76,10 +93,10 @@
        </div>
         
        
-     <!-- #########  BEREICH IMPRESSUM  ########## -->  
+     <!-- #########  BEREICH SUCHE  ########## -->  
      
-    <div id="impressum" style="display:none;">
-        <div id="content" style="background-color: green">ZUM TESTEN DER DIVs</div>      
+    <div id="search" style="display:none;">
+        <div id="content" style="background-color: green">ZUM SUCHE DER DIVs</div>      
     </div> 
        
      
@@ -119,7 +136,7 @@
      
      <!-- #########  BEREICH FULLIMAGE  ########## --> 
      
-     <div id="teste" style="display: none;">
+     <div id="image" style="display: none;">
              <div  id="fullimage">            
 
                     
