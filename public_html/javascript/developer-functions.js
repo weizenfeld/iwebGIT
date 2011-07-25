@@ -124,6 +124,7 @@ if (!iWebkit) {
         document.getElementById('contakte').style.display = 'none';
         document.getElementById('azeige').style.display = 'none';
         document.getElementById('search').style.display = 'none';
+        document.getElementById('impressum').style.display = 'none';
      }
 
      //    <!-- #########  INHALT DIV KONTAKTE CONTAINER   ########## --> 
@@ -136,6 +137,7 @@ if (!iWebkit) {
         document.getElementById('back').style.display = 'none';
         document.getElementById('search').style.display = 'none'; 
         document.getElementById('azeige').style.display = 'none';
+        document.getElementById('impressum').style.display = 'none';
      }
      
     //    <!-- #########  INHALT DIV SEARCH CONTAINER   ########## --> 
@@ -148,6 +150,7 @@ if (!iWebkit) {
         document.getElementById('back').style.display = 'none';
         document.getElementById('search').style.display = 'inline'; 
         document.getElementById('azeige').style.display = 'none';
+        document.getElementById('impressum').style.display = 'none';
      }
      
     //    <!-- #########  INHALT DIV ARTICLE CONTAINER   ########## --> 
@@ -159,7 +162,8 @@ if (!iWebkit) {
         document.getElementById('image').style.display = 'none';
         document.getElementById('contakte').style.display = 'none';
         document.getElementById('back').style.display = 'none';
-        document.getElementById('search').style.display = 'none';     
+        document.getElementById('search').style.display = 'none';
+        document.getElementById('impressum').style.display = 'none';
      }
      
      
@@ -172,7 +176,22 @@ if (!iWebkit) {
         document.getElementById('image').style.display = 'inline';
         document.getElementById('contakte').style.display = 'none';
         document.getElementById('back').style.display = 'inline';
-        document.getElementById('search').style.display = 'none';     
+        document.getElementById('search').style.display = 'none';
+        document.getElementById('impressum').style.display = 'none'; 
+     }
+     
+     
+         //    <!-- #########  INHALT DIV IMAGE CONTAINER   ########## --> 
+    function ShowImpressum(){
+        document.getElementById('mainmenu').style.display = 'none';
+        document.getElementById('divName').style.display = 'none';
+        document.getElementById('menu').style.display = 'inline';
+        document.getElementById('azeige').style.display = 'none';
+        document.getElementById('image').style.display = 'none';
+        document.getElementById('contakte').style.display = 'none';
+        document.getElementById('back').style.display = 'none';
+        document.getElementById('search').style.display = 'none'; 
+        document.getElementById('impressum').style.display = 'inline';
      }
      
      
@@ -256,6 +275,34 @@ if (!iWebkit) {
             });
 
             }
+            
+//       <!-- ######### ANZEIGE  NEUE PRODUKTE  ##########  -->     
+    function get_json() {
+
+            var html = '';
+
+              $.getJSON("includes/products.php" ,  function(data){
+
+              $.each(data, function(entryIndex, entry){
+
+          html +=
+
+              '<li class="store">' +
+              '<a  href="#?info=' + entry['articlenumber'] + '" onclick="javascript:ShowAnzeige();  get_json_article();">' + '</a>' +
+              '<span class="image" style="background-image: url(' + entry['image'] + ')">' +'</span>' +
+              '<span class="comment">' +
+                entry['label']  + '</span>' +
+              '<span class="name">' + entry['type'] + '</span><br>' +
+              '<span class="comment">' + entry['price']  + ' EUR  - Inkl 19% MwSt</span>' +
+              '<span class="arrow">' + '</span>'+
+              '</a>' +' </li>'
+
+               }); 
+                $('#angebot').html(html);
+
+            });
+
+    }            
                             
 
      

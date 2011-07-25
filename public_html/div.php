@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
  
     <head>
-        <title>Div Container EIN/AUSBLENDEN</title>
+        <title>Football Stars</title>
         <meta content="yes" name="apple-mobile-web-app-capable" />
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
         <meta content="minimum-scale=1.0, width=device-width, maximum-scale=0.6667, user-scalable=no" name="viewport" />
@@ -27,14 +27,14 @@
         <!-- #########  BEREICH NAVIGATION STARTSEITE ########## --> 
         <div id="mainmenu" style="display:inline;">
         <div id="topbar" class="transparent">
-            <div id="title">the lucky fish
+            <div id="title">Football Stars
                 </div>
             </div>
         <div id="tributton" >
             <div class="links">
-                <a href="#"  onclick="javascript:ShowMain()">Home</a>
                 <a href="#"  onclick="javascript:ShowSearch()">Search</a>
                 <a href="#"  onclick="javascript:ShowContact()">Contact</a>
+                <a href="#"  onclick="javascript:ShowImpressum()">Impressum</a>
                 </div>
             </div>
         <div id="doublead">
@@ -54,6 +54,7 @@
                 </div>
 
               <div id="rightnav">
+                    <a href="#" onclick="javascript:ShowImpressum()">Impressum</a>
                     <a href="#" onclick="javascript:ShowContact()">Contact</a>
                     <a href="#" onclick="javascript:ShowSearch()">Search</a>
               </div>
@@ -105,10 +106,10 @@
         <div id="contakte" style="display: none;"> 
             
         <div id="content">
-        <span class="graytitle">Contact the lucky fish</span>
+        <span class="graytitle">Contact the Football Stars</span>
         <ul class="pageitem">
         <li class="menu">
-        <a class="noeffect" href="mailto:lucky@fish.com?&amp;subject=the lucky fish &amp;body=Ihr anliegen an uns :">
+        <a class="noeffect" href="mailto:footballstars@shoes.com?&amp;subject=Football Stars &amp;body=Ihr anliegen an uns :">
         <img alt="mail" src="thumbs/mail.png" /><span class="name">Mail</span><span class="arrow"></span></a></li>
         <li class="menu"><a class="noeffect" href="sms:12125551212">
         <img alt="sms" src="thumbs/messages.png" /><span class="name">SMS</span><span class="comment">iPhone
@@ -119,9 +120,43 @@
         <a class="noeffect" href="http://maps.google.com/maps/place?cid=18061116676978465301&q=Ostertorsteinweg+31-33,+28203,+Bremen,+Deutschland&hl=en&cd=2&cad=src:pplink&ei=-tJ3TYfZCsudsAa5g7juBg">
         <img alt="google maps" src="thumbs/maps.png" /><span class="name">Google
         Maps</span><span class="arrow"></span></a></li>
-    </ul>
-     </div>  
-        </div>
+         </ul>
+         </div>  
+         </div>
+     
+     <!-- #########  BEREICH IMPRESSUM  ########## --> 
+     
+     <div id="impressum" style="display: none;">
+         
+      <div id="content">
+	<span class="graytitle">Impressum</span>
+	<ul class="pageitem">
+		<li class="textbox"><span class="header">Football Stars</span>
+                    <p class="impressum">
+                                               
+                    Max Mustermann<br>
+                    Pfauenstrasse 234<br>
+                    28205 Bremen<br>
+                    <br>
+                    Tel.  : 0421 - 435 670 5899<br>
+                    E-Mail: E-Mail: info[at]footballstars.de<br>
+                    USt-ID: 89/561/586433<br>
+                    Handwerkskammer BetriebsNr.: 43534534535<br>
+                    <br>
+                    Inhaltlich verantwortlich gemäß § 55 Abs. 2 RStV: Max Mustermann<br>
+                    <br>
+                    Es gelten unsere Allgemeinen Geschäftsbedingungen.<br>
+                    <br>
+                    Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir
+                    keine Haftung für die Inhalte externer Links. Für den Inhalt der verlinkten
+                    Seiten sind ausschließlich deren Betreiber verantwortlich. Jegliche Haftung 
+                    für Schäden, die direkt oder indirekt aus der Benutzung dieser Website entstehen,
+                    ist ausgeschlossen.
+                     </p>
+		</li>
+	</ul>
+       </div>
+      </div>
         
     
      
@@ -153,7 +188,6 @@
             <div class="center" >
                <img src="pics/fish_nacht.png" alt="brief description"/>
                  </div>
-                    <a class="noeffect" href="#">Impressum</a>
          </div>
     </body>
 </html>

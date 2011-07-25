@@ -277,7 +277,7 @@ a:hover .arrow {
 	display: block;
 	height: auto;
 	width: auto;
-	margin: 3px 9px 17px;
+	margin: 6px 9px 17px;
 	list-style: none;
 }
 .textbox {
@@ -1307,6 +1307,11 @@ select {
     padding: 1px;
     height: 100px;
     width: 75px;
+}
+
+.impressum {
+    
+    font-size: 11px;
 }
 
 
