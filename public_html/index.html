@@ -8,22 +8,19 @@
         <meta content="minimum-scale=1.0, width=device-width, maximum-scale=0.6667, user-scalable=no" name="viewport" />
         <link href="pics/homescreen.gif" rel="apple-touch-icon" />       
         <link href="pics/startup.png" rel="apple-touch-startup-image" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
         <link href="css/stylesheet.css" rel="stylesheet" media="screen" type="text/css" />
         <script type="text/javascript" src="javascript/jquery-1.6.2.min.js"></script> 
         <script type="text/javascript" src="javascript/jquery.tinycarousel.min.js"></script>
         <script src="javascript/developer-functions.js" type="text/javascript"></script> 
+        <script type="text/javascript" charset="utf-8" src="phonegap-1.0.0.js"></script>
         
-        <script type="text/javascript">
-             function slide(){
-             $('#slider1').tinycarousel({ display:1, pager: true, interval: true, controls: true });}
-             window.setTimeout("slide()", 3100);
-        </script>
-        
+
+                
     </head>
-    
-    
+
     <body>
-        
+        <div id="container"> 
         <!-- #########  BEREICH NAVIGATION STARTSEITE ########## --> 
         <div id="mainmenu" style="display:inline;">
         <div id="topbar" class="transparent">
@@ -32,14 +29,14 @@
             </div>
         <div id="tributton" >
             <div class="links">
-                <a href="#"  onclick="javascript:ShowSearch()">Search</a>
-                <a href="#"  onclick="javascript:ShowContact()">Contact</a>
-                <a href="#"  onclick="javascript:ShowImpressum()">Impressum</a>
+                <a href="#"  onclick="javascript:ShowSearch(); return false ">Search</a>
+                <a href="#"  onclick="javascript:ShowContact(); return false ">Contact</a>
+                <a href="#"  onclick="javascript:ShowImpressum(); return false ">Impressum</a>
                 </div>
             </div>
         <div id="doublead">
-                <a href="#" style="background-image: url('images/article_women.jpg')"></a>
-                <a href="#" style="background-image: url('images/article_men.jpg')"></a>
+                <a href="#" onclick="javascript:ShowList(); javascript:get_product('adidas'); return false " style="background-image: url('images/article_adidas.jpg')"></a>
+                <a href="#" onclick="javascript:ShowList(); javascript:get_product('nike'); return false " style="background-image: url('images/article_nike.jpg')"></a>
             </div>
        </div>
         
@@ -48,15 +45,15 @@
         <div id="menu" style="display:none;">
             <div id="topbar" class="black">
                 <div id="leftnav">
-                    <a href="#"  onclick="javascript:ShowMain(); "><img alt="home" src="images/home.png" /></a>
-                    <a id="back" href="#" onclick="javascript:get_json(); javascript:ShowAnzeige()"> back </a>
+                    <a href="#"  onclick="javascript:get_product('new'); javascript:ShowMain(); return false "><img alt="home" src="images/home.png" /></a>
+                    <a id="back" href="#" onclick="javascript:get_product('new'); javascript:ShowAnzeige(); return false "> back </a>
                     
                 </div>
 
               <div id="rightnav">
-                    <a href="#" onclick="javascript:ShowImpressum()">Impressum</a>
-                    <a href="#" onclick="javascript:ShowContact()">Contact</a>
-                    <a href="#" onclick="javascript:ShowSearch()">Search</a>
+                    <a href="#" onclick="javascript:ShowImpressum();return false ">Impressum</a>
+                    <a href="#" onclick="javascript:ShowContact(); return false ">Contact</a>
+                    <a href="#" onclick="javascript:ShowSearch(); return false ">Search</a>
               </div>
             </div>
         </div>
@@ -68,28 +65,30 @@
             
            <div id="content">
  
-            <ul class="pageitem">
+             
+               <ul class="pageitem">
  
-            <div id="slider1">
-                    <a class="buttons prev" href="#">left</a>
-                    <div class="viewport">
-                            <ul id="articleimages" class="overview">
- 
-                            </ul>
+                    <div id="slider1">
+                            <a class="buttons prev" href="#">left</a>
+                            <div class="viewport">
+                                    <ul id="articleimages" class="overview">
+
+                                    </ul>
+                            </div>
+                            <a class="buttons next" href="#">right</a>
                     </div>
-                    <a class="buttons next" href="#">right</a>
-            </div>
- 
             </ul>
- 
+              
             <ul class="pageitem">
-                      <li class="textbox">
-                          <span class="header">New Products:</span>
+                      <li id="" class="textbox">
+                          <span id="np" class="header" style="display:inline;">Neuste Produkte:</span>
+                          <span id="aw" class="header" style="display:none;">Deine Auswahl:</span>
                       </li>
+                     
+                
                       <div id="angebot"></div>
                      
             </ul>
- 
            </div>
        </div>
         
@@ -97,7 +96,33 @@
      <!-- #########  BEREICH SUCHE  ########## -->  
      
     <div id="search" style="display:none;">
-        <div id="content" style="background-color: green">ZUM SUCHE DER DIVs</div>      
+        <div class="searchbox">
+	<form>
+		<fieldset><input id='myText' name="search" placeholder="search" type="text" onclick=' return false ' />
+                 
+		<input id="button" name="submit" type="hidden"  onclick='notEmpty(); return false ' /></fieldset>
+                
+                
+	</form>
+            
+           
+</div>
+        
+        <ul class="pageitem">
+                      <li id="" class="textbox">
+                          <span id="np" class="header">Suchergebnisse:</span>
+                      </li>
+                     
+                
+                      <div id="searchID"></div>
+                     
+            </ul>
+        
+            
+            
+            
+            
+        </div>      
     </div> 
        
      
@@ -179,15 +204,16 @@
           
     </div>
         
-        
+        </div>
     </body>
  
      <!-- #########  BEREICH FOOTER  ########## --> 
      
        <div id="footer">
             <div class="center" >
-               <img src="pics/fish_nacht.png" alt="brief description"/>
+              <!-- <img src="pics/fish_nacht.png" alt="brief description"/> -->
                  </div>
          </div>
+     
     </body>
 </html>

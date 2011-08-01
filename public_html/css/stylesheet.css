@@ -8,6 +8,7 @@ body {
 	/*-webkit-background-size:0.438em 100%;*/
 	/*background: -webkit-gradient(linear,left top,right top,from(#c5ccd4), color-stop(71%, #c5ccd4), color-stop(72%, #cbd2d8), to(#cbd2d8));*/
 	background-image: url("../images/background.jpg");
+        background-size: 100%, auto;
         -webkit-touch-callout: none;
 }
 .center {
@@ -270,7 +271,7 @@ a:hover .arrow {
 	-webkit-border-radius: 8px;
 	background-color: #fff;
 	border: #878787 solid 1px;
-	font-size: 12pt;
+	font-size: 10pt;
 	overflow: hidden;
 	padding: 0;
 	position: relative;
@@ -471,7 +472,7 @@ fieldset {
 	margin-top: 2px;
 	color: #000;
 	margin-bottom: 2px;
-	text-align: justify;
+	text-align: left;
 }
 .textbox img {
 	max-width: 100%;
@@ -585,9 +586,12 @@ fieldset {
 	top: 0;
 	height: 90px;
 	width: 70px;
+        min-height: 90px;
+        min-width: 70px;
 	display: block;
+        -webkit-background-size: 70px 90px;
 	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#eff1f5), to(#d6dce6));
-	-webkit-background-size: 70px 90px;
+	
 }
 .applist .image {
 	width: 57px;
@@ -1217,12 +1221,29 @@ select {
 
 }
 
+#fullimage img{
+    max-width:  290px;
+
+}
+
 /*Artikelbereich Imageausrichtung*/
 #articleimage{
     background-color: #ffffff;
-    text-align: center;
     margin-top: 2px;
+    text-align: center;
+    min-height: 135px;
 }
+
+#articleimage img{
+    width: 100px;
+}
+
+.img_carusel{
+    
+    width: 70px;
+    height: 99px;
+}
+
 
 .articletitle {
 	position: absolute;
@@ -1248,6 +1269,8 @@ select {
         margin-bottom: 2px;
         margin-top: 2px;
         text-align: center;
+        font-weight: bold;
+        font-size: 13px;
 }
 
 
@@ -1314,5 +1337,19 @@ select {
     font-size: 11px;
 }
 
-
-
+#progress {
+    -webkit-border-radius: 10px;
+    background-color: rgba(0,0,0,.7);
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    height: 80px;
+    left: 60px;
+    line-height: 80px;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    text-align: center;
+    top: 120px;
+    width: 200px;
+}

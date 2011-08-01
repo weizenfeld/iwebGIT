@@ -3,6 +3,7 @@ var iWebkit;
 if (!iWebkit) {
 	
 	iWebkit = window.onload = function () {
+            
 			function fullscreen() {
 				var a = document.getElementsByTagName("a");
 				for (var i = 0; i < a.length;i++) {
@@ -36,21 +37,23 @@ if (!iWebkit) {
                                 }
                                      }
                         }
+                        
+                         
 
 //                      <!-- ######### ANZEIGE  NEUE PRODUKTE  ##########  -->     
-                        function get_json() {
+                        function get_product() {
 
+                                var info = 'new';
                                 var html = '';
 
-                                  $.getJSON("includes/products.php" ,  function(data){
-
+                                  $.getJSON('includes/get_products.php?info=' + info +''  ,  function(data){
                                   $.each(data, function(entryIndex, entry){
 
                               html +=
                             
                                   '<li class="store">' +
-                                  '<a  href="#?info=' + entry['articlenumber'] + '" onclick="javascript:ShowAnzeige();  get_json_article();">' + '</a>' +
-                                  '<span class="image" style="background-image: url(' + entry['image'] + ')">' +'</span>' +
+                                  '<a  href="#" onclick="javascript:ShowAnzeige();  get_json_article(' + entry['articlenumber'] + '); return false">' + '</a>' +
+                                  '<span class="image" style="background-image:url('+entry['image']+')">'+'</span>' +
                                   '<span class="comment">' +
                                     entry['label']  + '</span>' +
                                   '<span class="name">' + entry['type'] + '</span><br>' +
@@ -62,39 +65,43 @@ if (!iWebkit) {
                                     $('#angebot').html(html);
 
                                 });
-
                         }
 
 
 //                      <!-- #########  ANZEIGE ARTIKEL IM SLIDER  ########## --> 
                         function get_carousel() {
-
+                                
+                                var info = 'slide';
                                 var html = '';
+                                
 
-                                  $.getJSON("includes/carousel.php" ,  function(data){
+                                  $.getJSON('includes/get_products.php?info=' + info +''   ,  function(data){
 
                                   $.each(data, function(entryIndex, entry){
 
                                html +=
 
                                   '<li>' +
-                                  '<a href="#?info='+ entry['articlenumber'] + '"onclick="javascript:get_json_article(); javascript:ShowAnzeige();">'+
-                                  '<img src="' + entry['image'] + '" alt="Artikel" name="article" width="70" height="99"  onerror="ImgError(this);"/></a>'+
-                                  //'<img src="' + entry['image'] + '" alt="Artikel" name="article" width="70" height="99" /></a>'+
+                                  '<a href="#?" onclick="javascript:ShowAnzeige(); javascript:get_json_article('+ entry['articlenumber'] + '); return false">' +
+                                  '<img class="img_carusel" src="' + entry['image'] + '" alt="Artikel" name="article"  onerror="ImgError(this);"/></a>'+
                                   '</li>'
 
                                    });
                                     $('#articleimages').html(html);
 
                                 });
-
                         }
+                        
+
+                       
+                           
   
 			iWebkit.init = function () {
-				fullscreen();
+                                fullscreen();
 				hideURLbar();
                                 get_carousel();
-                                get_json();
+                               // get_json();
+                                get_product();
                                 //loadSite();
                                 //window.onload=get_image();
                                 //window.onload=get_json_article();
@@ -125,6 +132,10 @@ if (!iWebkit) {
         document.getElementById('azeige').style.display = 'none';
         document.getElementById('search').style.display = 'none';
         document.getElementById('impressum').style.display = 'none';
+        document.getElementById('aw').style.display = 'none';
+        document.getElementById('np').style.display = 'inline';
+        
+
      }
 
      //    <!-- #########  INHALT DIV KONTAKTE CONTAINER   ########## --> 
@@ -155,6 +166,8 @@ if (!iWebkit) {
      
     //    <!-- #########  INHALT DIV ARTICLE CONTAINER   ########## --> 
     function ShowAnzeige(){
+        
+        $('body').append('<div id="progress">Loading...</div>');
         document.getElementById('mainmenu').style.display = 'none';
         document.getElementById('divName').style.display = 'none';
         document.getElementById('menu').style.display = 'inline';
@@ -164,11 +177,14 @@ if (!iWebkit) {
         document.getElementById('back').style.display = 'none';
         document.getElementById('search').style.display = 'none';
         document.getElementById('impressum').style.display = 'none';
+        $('#progress').remove();
+        
      }
      
      
     //    <!-- #########  INHALT DIV IMAGE CONTAINER   ########## --> 
     function ShowImage(){
+        $('body').append('<div id="progress">Loading...</div>');
         document.getElementById('mainmenu').style.display = 'none';
         document.getElementById('divName').style.display = 'none';
         document.getElementById('menu').style.display = 'inline';
@@ -178,6 +194,7 @@ if (!iWebkit) {
         document.getElementById('back').style.display = 'inline';
         document.getElementById('search').style.display = 'none';
         document.getElementById('impressum').style.display = 'none'; 
+        $('#progress').remove();
      }
      
      
@@ -194,17 +211,27 @@ if (!iWebkit) {
         document.getElementById('impressum').style.display = 'inline';
      }
      
+            //    <!-- #########  INHALT DIV ProductLists CONTAINER   ########## --> 
+    function ShowList(){
+        document.getElementById('mainmenu').style.display = 'none';
+        document.getElementById('divName').style.display = 'inline';
+        document.getElementById('menu').style.display = 'inline';
+        document.getElementById('azeige').style.display = 'none';
+        document.getElementById('image').style.display = 'none';
+        document.getElementById('contakte').style.display = 'none';
+        document.getElementById('back').style.display = 'none';
+        document.getElementById('search').style.display = 'none'; 
+        document.getElementById('impressum').style.display = 'none';
+        document.getElementById('aw').style.display = 'inline';
+        document.getElementById('np').style.display = 'none';        
+     }
+     
      
     //   <!-- ######### ANZEIGE  FULLIMAGE  ##########  -->     
-    function get_image(){
-    //  hier werden die letzen 5 URL Zeichen gezogen -> Artikelnummer
-        var url = (document.URL);
-        var no = url;
-        var nolenght = url.substr(-5,1)
-        var urls = new Array();
-        urls.push(no.substr(-5,1), no.substr(-4,1), no.substr(-3,1), no.substr(-2,1), no.substr(-1,1));
-        var info = (urls[0] + urls[1] + urls[2] + urls[3] + urls[4]);
-
+    function get_image(id){
+        
+        $('body').append('<div id="progress">Loading...</div>');
+        var info = parseInt(id);
         var html = '';
 
          $.getJSON('includes/getarticlenumber.php?info=' + info +'' ,  function(data){
@@ -217,19 +244,14 @@ if (!iWebkit) {
                  }); 
                  $('#fullimage').html(html);
               });
+              $('#progress').remove();
       }
                         
                        
     //    <!-- #########  ANZEIGE ARTIKEL EINZELN  ########## -->                     
-    function get_json_article() {
-        //hier werden die letzen 5 URL Zeichen gezogen -> Artikelnummer
-        var url = (document.URL);
-        var no = url;
-        var nolenght = url.substr(-5,1)
-        var urls = new Array();
-        urls.push(no.substr(-5,1), no.substr(-4,1), no.substr(-3,1), no.substr(-2,1), no.substr(-1,1));
-        var info = (urls[0] + urls[1] + urls[2] + urls[3] + urls[4]);
+    function get_json_article(id) {
 
+        var info = parseInt(id);
         var html = '';
 
          $.getJSON('includes/getarticlenumber.php?info=' + info +'' ,  function(data){
@@ -242,9 +264,9 @@ if (!iWebkit) {
                 '<li class="articlediscr"><p>' + entry['discr_short'] + '</p>'  +
                 '</li>' +
                 '<li id="articleimage">' +
-                '<img  alt="'+ entry['type'] + '" width="100" src="' + entry['image']+ '" onerror="ImgError(this);"/>' +
+                '<img  alt="'+ entry['type'] + '"  src="' + entry['image']+ '" onerror="ImgError(this);"/>' +
                 '</li>' +
-                '<li class="menu"><a href="#?info='             + entry['articlenumber'] + '" onclick="javascript:ShowImage();  get_image(); ">' + 
+                '<li class="menu"><a href="#" onclick="javascript:ShowImage();  get_image(' + entry['articlenumber'] + '); return false">' + 
                 '<img alt="'+ entry['type']+ '" src="' + entry['image']+ '" onerror="ImgError(this);" /><span class="name">Photos'+
                 '</span></a><span class="arrow"></span></li>' +
                 '<li class="textbox ">' +
@@ -252,12 +274,20 @@ if (!iWebkit) {
                  entry['label'] +
                 '</li>' +
                 '<li class="textbox"><p>' +
-                'Color:&nbsp; &nbsp; &nbsp;' +
+                'Farbe:&nbsp; &nbsp; &nbsp;' +
                  entry['color'] + '</p>' +
                 '</li>' +
                 '<li class="textbox "><p>' +
                 'Size: &nbsp; &nbsp; &nbsp;&nbsp;' +
                  entry['size'] + '</p>' +
+                '</li>' +
+                '<li class="textbox "><p>' +
+                'Material: &nbsp;' +
+                 entry['material'] + '</p>' +
+                '</li>' +
+                '<li class="textbox "><p>' +
+                'Sohle: &nbsp; &nbsp;&nbsp;' +
+                 entry['sole'] + '</p>' +
                 '</li>' +
                 '<li class="textbox "><p>' +
                 'Preis:&nbsp; &nbsp; &nbsp;' +
@@ -273,22 +303,26 @@ if (!iWebkit) {
              $('#artikel').html(html);
 
             });
-
             }
             
-//       <!-- ######### ANZEIGE  NEUE PRODUKTE  ##########  -->     
-    function get_json() {
+ 
+    
+        //   <!-- ######### ANZEIGE PRODUKTE / LABEL  ##########  -->     
+    function get_product(id){
+        
+       var info = id;
+       // var info = parseInt(id);
+        var html = '';
 
-            var html = '';
+         $.getJSON('includes/get_products.php?info=' + info +'' ,  function(data){
 
-              $.getJSON("includes/products.php" ,  function(data){
+         $.each(data, function(entryIndex, entry){
 
-              $.each(data, function(entryIndex, entry){
-
-          html +=
+            html +=
+                
 
               '<li class="store">' +
-              '<a  href="#?info=' + entry['articlenumber'] + '" onclick="javascript:ShowAnzeige();  get_json_article();">' + '</a>' +
+              '<a  href="#" onclick="javascript:ShowAnzeige();  get_json_article(' + entry['articlenumber'] + '); return false">' + '</a>' +
               '<span class="image" style="background-image: url(' + entry['image'] + ')">' +'</span>' +
               '<span class="comment">' +
                 entry['label']  + '</span>' +
@@ -301,10 +335,53 @@ if (!iWebkit) {
                 $('#angebot').html(html);
 
             });
+    }
+    
+function notEmpty(){
+	var myTextField = document.getElementById('myText');
+	if(myTextField.value != ""){
+            
+       
+        var html = '';
 
-    }            
-                            
+         $.getJSON('includes/get_search.php?info=' + myTextField.value +'' ,  function(data){
 
-     
-     
+         $.each(data, function(entryIndex, entry){
+
+            html +=
+                
+
+              '<li class="store">' +
+              '<a  href="#" onclick="javascript:ShowAnzeige();  get_json_article(' + entry['articlenumber'] + '); return false">' + '</a>' +
+              '<span class="image" style="background-image: url(' + entry['image'] + ')">' +'</span>' +
+              '<span class="comment">' +
+                entry['label']  + '</span>' +
+              '<span class="name">' + entry['type'] + '</span><br>' +
+              '<span class="comment">' + entry['price']  + ' EUR  - Inkl 19% MwSt</span>' +
+              '<span class="arrow">' + '</span>'+
+              '</a>' +' </li>'
+
+               }); 
+                $('#searchID').html(html);
+
+            });}
+    
+	else
+		alert("Bitte einen Suchbegriff eingeben.")		
+}
+ 
+ 
+$(window).keypress(function(e){
+    if(e.keyCode == 13) {
+        notEmpty();
+        return false;
+    } 
+});
+
+    
+     function slide(){
+         
+             $('#slider1').tinycarousel({ display:1, duration: 500, pager: true, interval: true, controls: true });}
+             window.setTimeout("slide()", 5000);
+//              $("div").fadeIn("slow");
 
